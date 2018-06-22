@@ -2,14 +2,20 @@ import React, { Component } from 'react';
 import { StyleSheet, Text, View, TextInput } from 'react-native';
 
 class Search extends Component {
+  state = {
+    input: ''
+  }
+
+  
   render() {
+    console.log('state', this.state.input);
     return (
       <View style={styles.container}>
         <Text>Search Component</Text>
         <TextInput
-          style={{ styles.input }}
+          style={styles.input}
           placeholder="Search for flights here.."
-        />
+       onChange = {(e) => {this.setState({input: e.target.value})}} />
       </View>
     );
   }
@@ -18,11 +24,13 @@ class Search extends Component {
 const styles = StyleSheet.create({
   container: {
     width: '50%',
-    backgroundColor: '#f32',
+    backgroundColor: '#fff',
     alignItems: 'center'
   },
   input: {
-      height: '40'
+    marginTop: '20%',
+    borderStyle: 'solid',
+    borderColor: '#232323'
   }
 });
 
